@@ -73,7 +73,7 @@ type House={
         street:string,
     },
     hasGarden:boolean,
-    rent:number
+    readonly rent:number
 }
 
  const houseData:House = {
@@ -93,3 +93,26 @@ function printHouseData(houseData:House){
     return houseData
 }
 printHouseData(houseData)
+
+function printAddress(houseData:House):string{
+    return `${houseData.address.postCode}`+`, `+`${houseData.address.street}`
+}
+printAddress(houseData)
+
+let name:string[] = ['Andy','Ben','Shelly']
+name.push('Kevin')
+
+const yesOrNo : boolean[] = []
+const trueOrFalse : Array<boolean> = []
+
+type Size = {
+    brand:string,
+    w:number,
+    h:number,
+    t?:number,
+}
+
+const computerSize: Size[] = []
+computerSize.push({brand:'HP',w:100,h:200,t:20})
+computerSize.push({brand:'Apple',w:100,h:200})
+console.log(computerSize)

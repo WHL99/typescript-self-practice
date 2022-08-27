@@ -64,3 +64,15 @@ function printHouseData(houseData) {
     return houseData;
 }
 printHouseData(houseData);
+function printAddress(houseData) {
+    return "".concat(houseData.address.postCode) + ", " + "".concat(houseData.address.street);
+}
+printAddress(houseData);
+var name = ['Andy', 'Ben', 'Shelly'];
+name.push('Kevin');
+var yesOrNo = [];
+var trueOrFalse = [];
+var computerSize = [];
+computerSize.push({ w: 100, h: 200, t: 20 });
+computerSize.push({ w: 100, h: 200 });
+console.log(computerSize);
