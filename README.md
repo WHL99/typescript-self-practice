@@ -3,4 +3,4 @@
 ### Type Annotation Basics 
 ### Functions
 ### Object Types
-
+### Array Types
