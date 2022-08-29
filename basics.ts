@@ -116,3 +116,53 @@ const computerSize: Size[] = []
 computerSize.push({brand:'HP',w:100,h:200,t:20})
 computerSize.push({brand:'Apple',w:100,h:200})
 console.log(computerSize)
+
+
+export function grabscrab(anagram: string, dictionary: string[]): string[] {
+    let toArr :string [] = []
+     let sortedAna:string = anagram.split('').sort().join('')
+     let sortedDictionary = dictionary.map(function(e){
+       let sortedE:string = e.split('').sort().join('')
+       
+       return sortedE
+       
+     })
+     for(let i=0; i<sortedDictionary.length; i++ ){
+       
+       if(sortedDictionary[i] === sortedAna ){
+          toArr.push(dictionary[i])
+         
+       }
+     }   
+    return toArr
+  }
+  
+
+
+  //Unions - Narrowing the Type
+function checkPrice(price:number | string):void{
+    if(typeof price === 'string'){
+    `The Price is`+`${price}`
+
+    }else{
+        price*2
+    }
+
+}
+checkPrice(30)
+
+const stuffs:(number|string)[]=[2,4,3,'apple',2,'cake']
+
+const sache1: number[] | string[] = [1,2,3]
+
+const sache2: number[] | string[] = ['1','2','3']
+
+//Literal Types
+let zero:0 = 0
+
+let mood:'happy'|'sad'|'angry'
+mood='happy'
+
+type Day = 'Mon'|'Tue'|'Wed'|'Thu'|'Fri'|'Sat'|'Sun'
+let today:Day = 'Mon'
+
