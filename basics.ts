@@ -166,3 +166,95 @@ mood='happy'
 type Day = 'Mon'|'Tue'|'Wed'|'Thu'|'Fri'|'Sat'|'Sun'
 let today:Day = 'Mon'
 
+//Tuples
+const color1:number[]=[1,2,3,4,5,6,]
+const color2:[number,number,number]=[1,2,3]
+
+type Res = [number,string]
+const goodRes:Res=[200,'Perfect!']
+//const badRes:Res=['Not found!',404] //the order is wrong
+
+console.log(goodRes[0])
+goodRes[0]=400
+console.log(goodRes[0])
+
+goodRes.push('test')
+
+//Enums (It doesnt exist in JS.)
+enum OrderStatus {
+    PENDING,
+    SHIPPED,
+    DELIVERED,
+    RETURNED,
+  }
+
+const myStatus = OrderStatus.DELIVERED;
+  
+function isDelivered(status: OrderStatus) {
+    return status === OrderStatus.DELIVERED;
+  }
+  
+isDelivered(OrderStatus.RETURNED);
+
+const enum FamilyStatus {    //const!
+    SINGLE,
+    DIVORCED,
+    MARRIED,
+  }
+
+//Interface
+interface PersonInterface {
+    readonly id:number,
+    first:string,
+    last:string,
+    nickname?:string,
+    sayHi():string
+}
+
+type PersonType = {
+    readonly id:number,
+    first:string,
+    last:string,
+    nickname?:string,
+    sayHi():string
+}
+
+//what is the difference between type and interface???
+const kevin: PersonInterface={
+    first:'Kevin',
+    last:'Muller',
+    id:39824,
+    sayHi:()=>{return 'Hi!'}
+}
+
+
+const alice: PersonType={
+    first:'Alice',
+    last:'Chen',
+    id:39672,
+    sayHi:()=>{return 'Hi!'}
+}
+
+interface Produce{
+    name:string,
+    price:number,
+    giveDiscount(discount:number):number
+    // giveDiscount(discount:number):number{
+    //   return this.price * this.discount
+    // }
+    // Can't implement a function inside interface!
+}
+
+const shoes: Produce = {
+    name:'Running shoes',
+    price:100,
+    // giveDiscount(0.8){
+    //     return price*0.8
+    // }
+    giveDiscount(percent){
+        return this.price * percent
+    }
+}
+
+// console.log(shoes)
+shoes.giveDiscount(0.8)
