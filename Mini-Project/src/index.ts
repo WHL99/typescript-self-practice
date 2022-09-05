@@ -3,13 +3,8 @@ interface Todo {
     completed: boolean
 }
 
-
-
-
-
 const btn = document.getElementById('btn')! as HTMLButtonElement //暫且type是HTMLButtonElement
 // const btn = document.getElementById('btn')!  //!強調btn絕對不會是null
-
 // its type is Document
 
 const input = document.getElementById('input') as HTMLInputElement
@@ -36,6 +31,7 @@ const toDoListJSON = localStorage.getItem("toDoList")
 }
 
 
+
 function handleSubmit(e:SubmitEvent){
 e.preventDefault()
 const newToDoList: Todo = {
@@ -49,13 +45,21 @@ input.value = ''
 }
 
 function createTodo(todo: Todo) {
-    const newInputText = input.value 
     const newLi = document.createElement('li')
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
-    
+    checkbox.checked = todo.completed;
+    checkbox.addEventListener("change", function () {
+    todo.completed = checkbox.checked;
+    saveTodos();
+    });
     newLi.append(checkbox)
     newLi.append(todo.title)
     li.append(newLi)
 }
+
+function saveTodos() {
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
+  }
+
 form.addEventListener("submit",handleSubmit)

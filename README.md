@@ -8,3 +8,5 @@
 ### Tuples and Enums
 ### Interfaces
 ### The TypeScript Compiler
+### Mini Project: The DOM, Type Assertions, and More!
+### Classes

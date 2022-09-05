@@ -1,18 +1,10 @@
 "use strict";
-const btn = document.getElementById('btn'); //暫且type是HTMLButtonElement
-// const btn = document.getElementById('btn')!  //!強調btn絕對不會是null
-// its type is Document
+const btn = document.getElementById('btn');
 const input = document.getElementById('input');
-//在input上按右鍵 go to type defination 可以看到很多詳細的type
 const form = document.querySelector('form');
 const li = document.querySelector('ul');
-//或是js的方式 ?代表如過btn不存在 不執行
-// btn.addEventListener("click",function(){
-//     alert('You clicked!')
-//     input.value=''
-// })
 const toDoList = getToDoList();
-toDoList.forEach(getToDoList);
+Array.from(toDoList).forEach(createTodo);
 function getToDoList() {
     const toDoListJSON = localStorage.getItem("toDoList");
     if (toDoListJSON === null)
