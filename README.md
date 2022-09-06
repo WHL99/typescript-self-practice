@@ -10,3 +10,4 @@
 ### The TypeScript Compiler
 ### Mini Project: The DOM, Type Assertions, and More!
 ### Classes
+### TypeScript Classes
