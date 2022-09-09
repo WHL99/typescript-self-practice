@@ -11,3 +11,4 @@
 ### Mini Project: The DOM, Type Assertions, and More!
 ### Classes
 ### TypeScript Classes
+### Generics
