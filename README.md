@@ -12,3 +12,4 @@
 ### Classes
 ### TypeScript Classes
 ### Generics
+### Type Narrowing
