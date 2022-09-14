@@ -6,18 +6,17 @@ inputEl.value = 'HELLO'
 
 const btn = document.querySelector<HTMLButtonElement>('.btn')!
 
-function stringIdentify(item:string):string{
-    return item
+function stringIdentify(item: string): string {
+  return item
 }
 
-function numberIdentify(item:number):number{
-    return item
+function numberIdentify(item: number): number {
+  return item
 }
-
 
 // generics function 👍
-function identify<Type>(item:Type):Type{
-    return item
+function identify<Type>(item: Type): Type {
+  return item
 }
 
 identify<number>(7)
@@ -25,41 +24,51 @@ identify<string>('7')
 identify<boolean>(true)
 
 //
-function getRandomElement<T>(list:T[]):T{
-    return list[Math.floor(Math.random()*list.length)];
+function getRandomElement<T>(list: T[]): T {
+  return list[Math.floor(Math.random() * list.length)]
 }
-console.log(getRandomElement<string>(['a','b','c','z']))
-console.log(getRandomElement<number>([123,22,41,44222]))
-console.log(getRandomElement<any>([123,'22',41,44222,'hi']))
-console.log(getRandomElement<boolean>([true,false,true]))
+console.log(
+  getRandomElement<string>(['a', 'b', 'c', 'z']),
+)
+console.log(
+  getRandomElement<number>([123, 22, 41, 44222]),
+)
+console.log(
+  getRandomElement<any>([123, '22', 41, 44222, 'hi']),
+)
+console.log(
+  getRandomElement<boolean>([true, false, true]),
+)
 //                             ^
 //                             |
 //------------------------------ no need to give type
-console.log(getRandomElement([123,'22',41,44222,'hi']))
+console.log(getRandomElement([123, '22', 41, 44222, 'hi']))
 
 //🖐️ Generics With Multiple Types
-function merge<T,U>(object1:T,object2:U){
-    return {
-        ...object1,
-        ...object2,
-    }
+function merge<T, U>(object1: T, object2: U) {
+  return {
+    ...object1,
+    ...object2,
+  }
 }
-const comboObj = merge({name:'Lisa'},{age:20, gender:['female','male']})
+const comboObj = merge(
+  { name: 'Lisa' },
+  { age: 20, gender: ['female', 'male'] },
+)
 console.log(comboObj)
 
-function merge2<T extends object,U extends object>(object1:T,object2:U){
-    return {
-        ...object1,
-        ...object2,
-    }
+function merge2<T extends object, U extends object>(object1: T, object2: U) {
+  return {
+    ...object1,
+    ...object2,
+  }
 }
 // const comboObj2 = merge2({name:'Lisa'},999) //👎 999必須是obj
-const comboObj2 = merge2({name:'Lisa'},{num:999}) 
-
+const comboObj2 = merge2({ name: 'Lisa' }, { num: 999 })
 
 //🖐️ Adding Type Constraints
 interface Lengthy {
-    length:number
+  length: number
 }
 
 //以下方法也可以
@@ -68,14 +77,14 @@ interface Lengthy {
 // }
 
 //以下用interface
-function printDoubleLength(thing: Lengthy):number{
-    return thing.length * 2
+function printDoubleLength(thing: Lengthy): number {
+  return thing.length * 2
 }
 printDoubleLength('wdjf')
 
 //🖐️ Default Type Parameters
-function makeEmptyArray<T = number>():T[]{
-    return []
+function makeEmptyArray<T = number>(): T[] {
+  return []
 }
 const numbers = makeEmptyArray()
 const booleans = makeEmptyArray<boolean>()
@@ -84,31 +93,31 @@ const booleans = makeEmptyArray<boolean>()
 
 // A Generic Class Example
 interface Song {
-    title: string;
-    artist: string;
+  title: string
+  artist: string
 }
 interface Video {
-    title: string;
-    creator: string;
-    resolution: string;
+  title: string
+  creator: string
+  resolution: string
 }
 
 // class VideoPlaylist {
 //     public videos: Video [] = []
 // }
-  
+
 // class SongPlaylist {
 //     public songs: Video [] = []
 // }
-  
+
 class Playlist<T> {
-    public queue: T[] = [];
-    add(el: T) {
-      this.queue.push(el);
-    }
+  public queue: T[] = []
+  add(el: T) {
+    this.queue.push(el)
+  }
 }
-  
-const songs = new Playlist<Song>();
-const videos = new Playlist<Video>();
+
+const songs = new Playlist<Song>()
+const videos = new Playlist<Video>()
 
 console.log(songs)

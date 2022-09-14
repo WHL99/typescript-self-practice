@@ -1,7 +1,7 @@
 import axios from 'axios'
-import lodash from 'lodash'
+// import lodash from 'lodash'
 
-lodash.partition()
+// lodash.partition()
 
 interface User {
   id: number
